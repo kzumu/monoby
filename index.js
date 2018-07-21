@@ -48,6 +48,8 @@ const clovaSkillHandler = clova.Client
         //});
         break;
       // ビルトインインテント。ユーザーによるインプットが肯定/否定/キャンセルのみであった場合
+      case 'ThrowDiceIntent':
+        console.log(responseHelper)
       case 'Clova.YesIntent':
       case 'Clova.NoIntent':
       case 'Clova.CancelIntent':

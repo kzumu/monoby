@@ -21,22 +21,6 @@ const clovaSkillHandler = clova.Client
     const intent = responseHelper.getIntentName();
     let speech;
     switch (intent) {
-      // ユーザーのインプットが挨拶だと判別された場合。第2引数はreprompt(入力が行われなかった場合の聞き返し)をするか否か。省略可。
-      case 'GreetingsIntent':
-        speech = {
-          lang: 'ja',
-          type: 'PlainText',
-          value: `ご挨拶して頂きありがとうございます。${TEMPLATE_INQUIRY}`
-        }
-        responseHelper.setSimpleSpeech(speech)
-        responseHelper.setSimpleSpeech(speech, true)
-        // 下記でも可
-        /*
-        responseHelper.setSimpleSpeech(
-          clova.SpeechBuilder.createSpeechText(`ご挨拶して頂きありがとうございます。${TEMPLATE_INQUIRY}`)
-        );
-        */
-        break;
       // ビルトインインテント。ユーザーによるインプットが使い方のリクエストと判別された場合
       case 'Clova.GuideIntent':
         speech = {
@@ -58,6 +42,7 @@ const clovaSkillHandler = clova.Client
         }
         responseHelper.setSimpleSpeech(speech)
         responseHelper.setSimpleSpeech(speech, true)
+        break
       case 'Clova.YesIntent':
       case 'Clova.NoIntent':
       case 'Clova.CancelIntent':

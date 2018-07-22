@@ -83,10 +83,9 @@ const clovaMiddleware = clova.Middleware({
 });
 
 app.post('/clova', clovaMiddleware, clovaSkillHandler);
-app.post('/speech', function (req, res) {
-  console.log(req)
-  console.log(req.body.text);
-  gotTexts.push(req.body.text)
+app.get('/speech', function (req, res) {
+  console.log(req.query.text);
+  gotTexts.push(req.query.text)
   console.log("got texts -> ", gotTexts)
 });
 

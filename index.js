@@ -12,7 +12,7 @@ const clovaSkillHandler = clova.Client
     responseHelper.setSimpleSpeech({
       lang: 'ja',
       type: 'PlainText',
-      value: `「挨拶サンプル」が起動されました。${TEMPLATE_INQUIRY}`,
+      value: `「モノビー」が起動されました。${TEMPLATE_INQUIRY}`,
     });
   })
   // カスタムインテント or ビルトインインテント
@@ -48,8 +48,15 @@ const clovaSkillHandler = clova.Client
         //});
         break;
       // ビルトインインテント。ユーザーによるインプットが肯定/否定/キャンセルのみであった場合
-      case 'ThrowDiceIntent':
-        console.log(responseHelper)
+      case 'QuestionIntent':
+        console.log('QuestionIntentが呼ばれたよ！')
+        speech = {
+          lang: 'ja',
+          type: 'PlainText',
+          value: "うぇいうぇいうぇいうぇいうぇい！！！！"
+        }
+        responseHelper.setSimpleSpeech(speech)
+        responseHelper.setSimpleSpeech(speech, true)
       case 'Clova.YesIntent':
       case 'Clova.NoIntent':
       case 'Clova.CancelIntent':

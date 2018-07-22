@@ -85,9 +85,9 @@ const clovaMiddleware = clova.Middleware({
 app.post('/clova', clovaMiddleware, clovaSkillHandler);
 app.post('/speech', function (req, res) {
   console.log(req)
-  // console.log(req.body.text);
-  // gotTexts.push(req.body.text)
-  // console.log("got texts -> ", gotTexts)
+  console.log(req.body.text);
+  gotTexts.push(req.body.text)
+  console.log("got texts -> ", gotTexts)
 });
 
 // リクエストの検証を行わない

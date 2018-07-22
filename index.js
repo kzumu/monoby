@@ -79,6 +79,8 @@ app.get('/speech', function (req, res) {
   console.log(req.query.text);
   gotTexts.push(req.query.text)
   console.log("got texts -> ", gotTexts)
+
+  res.send({ result: 'success' })
 });
 
 // リクエストの検証を行わない

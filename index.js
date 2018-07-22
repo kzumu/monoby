@@ -40,7 +40,7 @@ const clovaSkillHandler = clova.Client
           text += str + '、'
         }
         text += 'です'
-        gotTexts = []
+        // gotTexts = []
 
         speech = {
           lang: 'ja',

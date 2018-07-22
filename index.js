@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 
 // 応答の最後に追加するテンプレート
 const TEMPLATE_INQUIRY = '挨拶をするか、使い方もしくは終了、と呼びかけて下さい。';
+var gotTexts = []
 
 const clovaSkillHandler = clova.Client
   .configureSkill()
@@ -80,7 +81,13 @@ const app = new express();
 const clovaMiddleware = clova.Middleware({
   applicationId: process.env.APPLICATION_ID
 });
+
 app.post('/clova', clovaMiddleware, clovaSkillHandler);
+app.post('/speech', function (req, res) {
+  console.log(req.body.text);
+  gotTexts.push(req.body.text)
+  console.log("got texts -> ", gotTexts)
+});
 
 // リクエストの検証を行わない
 //app.post('/clova', bodyParser.json(), clovaSkillHandler);

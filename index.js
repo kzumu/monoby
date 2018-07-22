@@ -36,11 +36,11 @@ const clovaSkillHandler = clova.Client
       case 'QuestionIntent':
         console.log('QuestionIntentが呼ばれたよ！')
         var text = '質問は'
-        for (const str in gotTexts) {
+        for (const str of gotTexts) {
           text += str + '、'
         }
         text += 'です'
-        // gotTexts = []
+        gotTexts = []
 
         speech = {
           lang: 'ja',

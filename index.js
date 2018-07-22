@@ -75,14 +75,13 @@ const clovaSkillHandler = clova.Client
   })
   .handle();
 
-var app = express.createServer();
+const app = new express();
 
 // リクエストの検証を行う場合。環境変数APPLICATION_ID(値はClova Developer Center上で入力したExtension ID)が必須
 const clovaMiddleware = clova.Middleware({
   applicationId: process.env.APPLICATION_ID
 });
 
-app.use(express.bodyDecoder());
 app.post('/clova', clovaMiddleware, clovaSkillHandler);
 app.post('/speech', function (req, res) {
   console.log(req)

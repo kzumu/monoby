@@ -35,10 +35,17 @@ const clovaSkillHandler = clova.Client
       // ビルトインインテント。ユーザーによるインプットが肯定/否定/キャンセルのみであった場合
       case 'QuestionIntent':
         console.log('QuestionIntentが呼ばれたよ！')
+        var text = '質問は'
+        for (const str in gotTexts) {
+          text += str + '、'
+        }
+        text += 'です'
+        gotTexts = []
+
         speech = {
           lang: 'ja',
           type: 'PlainText',
-          value: "うぇいうぇいうぇいうぇいうぇい！！！！"
+          value: text
         }
         responseHelper.setSimpleSpeech(speech)
         responseHelper.setSimpleSpeech(speech, true)
